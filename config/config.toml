@@ -1,0 +1,30 @@
+# Valid TOML config file
+# Path
+data-path="/data/besu"
+
+# Network
+bootnodes=[""]
+
+genesis-file="/data/besu/config/besu/genesis.json"
+node-private-key-file="/data/besu/keys/besu/key"
+#discovery-enabled=false
+
+# Permissioning
+permissions-accounts-contract-enabled=false
+permissions-accounts-contract-address="0x0000000000000000000000000000000000008888"
+permissions-nodes-contract-enabled=false
+permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
+
+
+#LOG-LEVEL
+#logging="DEBUG"
+
+# RPC
+rpc-http-enabled=true
+rpc-http-host="0.0.0.0"
+rpc-http-cors-origins=["*"]
+host-allowlist=["*"]
+rpc-http-api=["ETH","NET","WEB3","ADMIN","IBFT","TXPOOL"]
+
+# Metrics
+metrics-enabled=true
