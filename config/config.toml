@@ -28,3 +28,4 @@ rpc-http-api=["ETH","NET","WEB3","ADMIN","IBFT","TXPOOL"]
 
 # Metrics
 metrics-enabled=true
+metrics-host="<ip>"
