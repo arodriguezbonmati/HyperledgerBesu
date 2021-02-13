@@ -20,7 +20,7 @@ permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
 #logging="DEBUG"
 
 p2p-host="<ip>"
-p2p-port="8545"
+p2p-port="<port>"
 
 # RPC
 rpc-http-enabled=true
