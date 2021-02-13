@@ -19,6 +19,9 @@ permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
 #LOG-LEVEL
 #logging="DEBUG"
 
+p2p-host="<ip>"
+p2p-port="8545"
+
 # RPC
 rpc-http-enabled=true
 rpc-http-host="0.0.0.0"
