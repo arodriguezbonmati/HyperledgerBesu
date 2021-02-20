@@ -106,7 +106,7 @@ contract NodeRules is NodeRulesProxy, NodeRulesList {
         bytes16 ip,
         uint16 port
     ) public view returns (bool) {
-        return exists(enodeHigh, enodeLow, ip, port);
+        return exists(enodeHigh, enodeLow);
     }
 
     function addEnode(
