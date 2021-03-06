@@ -1,0 +1,17 @@
+[Unit]
+Description=Besu Service
+After=network.target
+
+[Service]
+StartLimitBurst=5
+StartLimitIntervalSec=200
+WorkingDirectory=/data/besu
+Environment=LOG4J_CONFIGURATION_FILE=/data/besu/config/besu/log-config.xml
+Type=simple
+User=besu
+ExecStart=/data/besu/bin/besu --config-file="/data/besu/config/besu/config.toml"
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
