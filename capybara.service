@@ -1,0 +1,16 @@
+[Unit]
+Description=Capybara Service
+After=network.target
+
+[Service]
+StartLimitBurst=5
+StartLimitIntervalSec=200
+WorkingDirectory=/data/src/github.com/san-lab/capybara
+Type=simple
+User=root
+ExecStart=/data/src/github.com/san-lab/capybara/capybara --withAuth=false --httpPort 80
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
