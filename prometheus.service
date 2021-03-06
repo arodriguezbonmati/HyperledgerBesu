@@ -1,0 +1,16 @@
+[Unit]
+Description=Prometheus Service
+After=network.target
+
+[Service]
+StartLimitBurst=5
+StartLimitIntervalSec=200
+WorkingDirectory=/data/prometheus-2.25.0.linux-amd64
+Type=simple
+User=besu
+ExecStart=/data/prometheus-2.25.0.linux-amd64/prometheus --config.file=/data/prometheus-2.25.0.linux-amd64/prometheus.yml
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
