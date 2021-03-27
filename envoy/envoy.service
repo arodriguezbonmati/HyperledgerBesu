@@ -1,0 +1,16 @@
+[Unit]
+Description=Envoy Service
+After=network.target
+
+[Service]
+StartLimitBurst=5
+StartLimitIntervalSec=200
+WorkingDirectory=/home/alvaro/Desktop
+Type=simple
+User=root
+ExecStart=envoy -c /home/alvaro/Desktop/envoy_config.yaml
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
