@@ -5,10 +5,10 @@ After=network.target
 [Service]
 StartLimitBurst=5
 StartLimitIntervalSec=200
-WorkingDirectory=/home/alvaro/Desktop
+WorkingDirectory=/data/besu/envoy
 Type=simple
 User=root
-ExecStart=envoy -c /home/alvaro/Desktop/envoy_config.yaml
+ExecStart=envoy -c /data/besu/envoy/envoy_config.yaml
 Restart=always
 RestartSec=30
 
