@@ -64,7 +64,7 @@
     - name: Generate besu unit file
       become: yes
       copy: 
-        src: templates/besu.service
+        src: ../templates/besu.service
         dest: /etc/systemd/system/besu.service
    
     - name: Reload besu service
