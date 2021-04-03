@@ -92,17 +92,17 @@
     
     - name: Bring xml log strategy file into besu/config
       copy: 
-        src: ../config/log-config.xml
+        src: ../../config/log-config.xml
         dest: /data/besu/config/besu/
 
     - name: Bring genesis.json in place
       copy: 
-        src: ../config/genesis.json
+        src: ../../config/genesis.json
         dest: /data/besu/config/besu/genesis.json
 
     - name: Bring regular config.toml in place
       copy: 
-        src: ../config/config.toml
+        src: ../../config/config.toml
         dest: /data/besu/config/besu/config.toml
 
     - name: Remove unnecessary folder transit
@@ -119,7 +119,7 @@
 
     - name: Add +x to get_keys.sh
       file:
-        path: ../get_keys.sh
+        path: ../../get_keys.sh
         mode: +x    
 
     - name: Exec get_keys.sh
