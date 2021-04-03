@@ -123,7 +123,7 @@
         mode: +x    
 
     - name: Exec get_keys.sh
-      shell: .././get_keys.sh
+      shell: ../.././get_keys.sh
 
     - name: Recursively change ownership of a directory
       become: yes
