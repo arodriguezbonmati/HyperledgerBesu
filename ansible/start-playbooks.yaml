@@ -1,8 +1,8 @@
 - name: Create besu user
-  import_playbook: user-playbook.yaml
+  import_playbook: playbooks/user-playbook.yaml
 
 - name: Install and deploy regular node
-  import_playbook: regular-playbook.yaml
+  import_playbook: playbooks/regular-playbook.yaml
 
 - name: Install and deploy Envoy Proxy
-  import_playbook: envoy-playbook.yaml
+  import_playbook: playbooks/envoy-playbook.yaml
