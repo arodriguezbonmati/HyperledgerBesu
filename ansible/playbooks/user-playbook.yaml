@@ -1,0 +1,14 @@
+---
+- name: Create besu user
+  hosts: localhost
+  connection: local
+  
+  tasks:
+    - name: Create a user 
+      become: yes
+      user:
+        name: besu
+        comment: Besu service
+        shell: /sbin/nologin
+        system: yes
+        createhome: no

@@ -1,0 +1,46 @@
+---
+- name: Create envoy service and directories
+  hosts: localhost
+  connection: local 
+  gather_facts: false
+  become: no
+  tasks:
+
+# Creación de la estructura de directorios
+
+    - name: Create subdirectories
+      file: 
+        path: /data/envoy 
+        state: directory 
+
+# Configuración desde ficheros de configuración y creación del servicio envoy
+
+    - name: Generate envoy unit file
+      become: yes
+      copy: 
+        src: ../envoy/envoy.service
+        dest: /etc/systemd/system/envoy.service
+   
+    - name: Reload envoy service
+      become: yes
+      systemd: 
+        daemon_reload: yes
+
+    - name: Stop the daemon
+      become: yes
+      systemd: 
+        name: envoy 
+        enabled: yes 
+        state: stopped
+
+    - name: Bring envoy.yaml into envoy directory
+      copy: 
+        src: ../envoy/envoy_config.yaml
+        dest: /data/envoy/envoy_config.yaml
+
+    - name: Start the envoy service
+      become: yes
+      systemd: 
+        name: envoy
+        enabled: yes
+        state: restarted
