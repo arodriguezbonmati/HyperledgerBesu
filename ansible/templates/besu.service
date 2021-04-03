@@ -1,0 +1,18 @@
+[Unit]
+Description=Besu Service
+After=network.target
+
+[Service]
+StartLimitBurst=5
+StartLimitIntervalSec=200
+WorkingDirectory=/data/besu/
+Environment=LOG4J_CONFIGURATION_FILE=config/besu/log-config.xml
+EnvironmentFile=/etc/environment
+Type=simple
+User=besu
+ExecStart=/data/besu/bin/besu --config-file=config/besu/config.toml --p2p-host=${BESU_P2P_HOST}
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
