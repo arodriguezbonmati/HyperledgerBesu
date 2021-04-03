@@ -20,13 +20,13 @@ static_resources:
                 route: { cluster:  besu_node }
           http_filters:
           - name: envoy.filters.http.router
-      tls_context:
-        common_tls_context:
-          tls_certificates:
-            - certificate_chain: { filename: "" }
-              private_key: { filename: "" }
-          validation_context:
-            trusted_ca: { filename: "" }
+#      tls_context:
+#        common_tls_context:
+#          tls_certificates:
+#            - certificate_chain: { filename: "" }
+#              private_key: { filename: "" }
+#          validation_context:
+#            trusted_ca: { filename: "" }
   clusters:
   - name: besu_node
     connect_timeout: 0.25s
