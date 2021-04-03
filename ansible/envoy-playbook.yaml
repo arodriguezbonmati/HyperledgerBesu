@@ -38,18 +38,6 @@
         src: ../envoy/envoy_config.yaml
         dest: /data/envoy/envoy_config.yaml
 
-    - name: Generate envoy unit file
-      become: yes
-      copy:
-        src: ../envoy/startEnvoy.sh
-        dest: /data/envoy/startEnvoy.sh
-
-    - name: Add +x to startEnvoy.sh
-      become: yes
-      file:
-        path: /data/envoy/startEnvoy.sh
-        mode: +x
-
     - name: Start the envoy service
       become: yes
       systemd: 
