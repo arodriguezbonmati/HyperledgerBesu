@@ -18,7 +18,7 @@
     - name: Generate envoy unit file
       become: yes
       copy: 
-        src: ../envoy/envoy.service
+        src: ../../envoy/envoy.service
         dest: /etc/systemd/system/envoy.service
    
     - name: Reload envoy service
@@ -35,7 +35,7 @@
 
     - name: Bring envoy.yaml into envoy directory
       copy: 
-        src: ../envoy/envoy_config.yaml
+        src: ../../envoy/envoy_config.yaml
         dest: /data/envoy/envoy_config.yaml
 
     - name: Start the envoy service
