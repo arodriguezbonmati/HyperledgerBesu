@@ -47,27 +47,25 @@
         path: /tmp/besu
         state: directory
 
-    - name: Pull besu binaries
+    - name: Pull Hyperleder Besu
       become: yes
       get_url:
         url: "https://dl.bintray.com/hyperledger-org/besu-repo/besu-{{besu_version}}.tar.gz"
         dest: "/tmp/besu/besu.tar.gz"
 
-    - name: Extract besu binaries
+    - name: Extract Hyperledger Besu
       unarchive:
         src: "/tmp/besu/besu.tar.gz"
         dest: /data/versionesBesu/
         copy: no
 
-# Configuración desde ficheros de configuración en github público
-
-    - name: Generate besu unit file
+    - name: Generate besu.service file
       become: yes
       copy: 
         src: ../templates/besu.service
         dest: /etc/systemd/system/besu.service
    
-    - name: Reload besu service
+    - name: Reload besu.service
       become: yes
       systemd: daemon_reload=yes
 
@@ -78,29 +76,29 @@
         enabled: yes 
         state: stopped
 
-    - name: Symbolic link bin for new besu version
+    - name: Create symbolic link bin
       file: 
         src: /data/versionesBesu/besu-{{besu_version}}/bin 
         dest: /data/besu/bin
         state: link
 
-    - name: Symbolic link lib for new besu version
+    - name: Create symbolic link lib
       file: 
         src: /data/versionesBesu/besu-{{besu_version}}/lib
         dest: /data/besu/lib
         state: link
     
-    - name: Bring xml log strategy file into besu/config
+    - name: Move log-config.xml file into besu/config
       copy: 
         src: ../../config/log-config.xml
         dest: /data/besu/config/besu/
 
-    - name: Bring genesis.json in place
+    - name: Move genesis.json file into besu/config
       copy: 
         src: ../../config/genesis.json
         dest: /data/besu/config/besu/genesis.json
 
-    - name: Bring regular config.toml in place
+    - name: Move config.toml file into besu/config
       copy: 
         src: ../../config/config.toml
         dest: /data/besu/config/besu/config.toml
