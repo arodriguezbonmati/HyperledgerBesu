@@ -6,22 +6,18 @@
   become: no
   tasks:
 
-# Creación de la estructura de directorios
-
     - name: Create subdirectories
       file: 
         path: /data/envoy 
         state: directory 
 
-# Configuración desde ficheros de configuración y creación del servicio envoy
-
-    - name: Generate envoy unit file
+    - name: Generate envoy.service file
       become: yes
       copy: 
         src: ../../envoy/envoy.service
         dest: /etc/systemd/system/envoy.service
    
-    - name: Reload envoy service
+    - name: Reload envoy.service
       become: yes
       systemd: 
         daemon_reload: yes
@@ -33,7 +29,7 @@
         enabled: yes 
         state: stopped
 
-    - name: Bring envoy.yaml into envoy directory
+    - name: Move envoy_config.yaml to envoy/
       copy: 
         src: ../../envoy/envoy_config.yaml
         dest: /data/envoy/envoy_config.yaml
