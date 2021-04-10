@@ -8,7 +8,7 @@
       become: yes
       user:
         name: besu
-        comment: Besu service
+        comment: Besu user
         shell: /sbin/nologin
         system: yes
         createhome: no
