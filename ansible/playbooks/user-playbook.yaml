@@ -4,7 +4,7 @@
   connection: local
   
   tasks:
-    - name: Create a user 
+    - name: Create user besu
       become: yes
       user:
         name: besu
