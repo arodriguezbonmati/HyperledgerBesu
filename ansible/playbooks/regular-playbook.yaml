@@ -7,9 +7,7 @@
     besu_version: '20.10.1'
 
   tasks:
-
-# Creación de la estructura de directorios
-
+  
     - name: Set BESU_P2P_HOST rule
       become: yes
       lineinfile:
