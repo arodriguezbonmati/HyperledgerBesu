@@ -17,7 +17,7 @@ permissions-nodes-contract-address="0x0000000000000000000000000000000000009999"
 
 
 #LOG-LEVEL
-#logging="DEBUG"
+#logging="INFO"
 
 #p2p-host="<ip>"
 #p2p-port="<port>"
