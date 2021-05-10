@@ -36,7 +36,7 @@ In this repository you can find all the necessary files required to deploy an En
 #### `ansible/`
 
 - `playbooks/`
-  - `user-playbook.yaml`: Creates a low privilege that will run the Besu node.
+  - `user-playbook.yaml`: Creates a low privilege user that will run the Besu node.
   - `regular-playbook.yaml`: Organizes the node's directories and deploys the Besu node.
   - `envoy-playbook.yaml`: Organizes the Envoy Proxy's directory and it deploys it.
 
